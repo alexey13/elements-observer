@@ -2,7 +2,7 @@
 //1. triggerInOutViewport Start when enter viewport and stop when live it (not destroying)
 //2. triggerOnce - Start when enter viewport and destroy observer
 //3. scrollProgress - to use with animejs get progress of scrolling
-export function observeElement({el, type, offset = 0.5, onEnter = null, onLeave = null, rootMargin = '0px'} = {}) {
+export function observeElement({el, type, offset = 0.5, onEnter = null, onLeave = null, onProgress = null, rootMargin = '0px'} = {}) {
 
   let options = {
     root: null,
@@ -48,7 +48,7 @@ export function observeElement({el, type, offset = 0.5, onEnter = null, onLeave 
           //Current Position: entry.boundingClientRect.y;
             let progress;
             progress = entry.intersectionRect.height / entry.boundingClientRect.height;
-            onEnter(progress)
+            onProgress(progress)
           break;
       }
       // Each entry describes an intersection change for one observed
