@@ -29,11 +29,11 @@ export function observeElement({el, type, offset = 0.5, onEnter = null, onLeave 
         case 'triggerInOutViewport':
           //If element visible
           if (entry.isIntersecting) {
-            onEnter()
+            onEnter(entry.target)
           }
           //If element not visible
           if (!entry.isIntersecting && onLeave) {
-            onLeave()
+            onLeave(entry.target)
           }
           break;
         case 'triggerOnce':
@@ -48,7 +48,7 @@ export function observeElement({el, type, offset = 0.5, onEnter = null, onLeave 
           //Current Position: entry.boundingClientRect.y;
             let progress;
             progress = entry.intersectionRect.height / entry.boundingClientRect.height;
-            onProgress(progress)
+            onProgress(progress, entry.target)
           break;
       }
       // Each entry describes an intersection change for one observed

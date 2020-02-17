@@ -13,9 +13,9 @@ observeElement({
   type: 'triggerOnce',
   offset: 0.5,
   rootMargin: '0px',
-  onEnter: () => animation.play(),
-  onProgress: (progress) => animation.seek(animation.duration * progress),// if type 'scrollProgress'
-  onLeave: () => animation.play()
+  onEnter: (target) => animation.play(target),
+  onProgress: (progress, target) => animation.seek(animation.duration * progress),// if type 'scrollProgress'
+  onLeave: (target) => animation.play(target)
 })
 ```
 
