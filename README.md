@@ -1,11 +1,12 @@
 # element-observer
-> Helper to observe elements using Intersection Observer API
+> Helper to observe elements using Intersection Observer API https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 
 ## Installation
 ```html
 <script src="observe-elements.js"></script>
 ```
 
+## Usage
 ```js
 observeElement({
   el: document.querySelectorAll('.elements'),
